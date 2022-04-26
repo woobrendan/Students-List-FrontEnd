@@ -12,8 +12,16 @@ export default function StudentInfo() {
       .catch((err) => console.log("Error: ", err))
   }, []);
 
+  const getAverage = (grades) => {
+    const intGrades = grades.map(grade => {
+      return Number(grade)
+    })
+    const gradeTotal = intGrades.reduce((prev, current) => prev + current, 0)
+    return gradeTotal / grades.length
+  }
+
   const mappedStudents = students.map(student => (
-    <div className="student-info-container">
+    <div className="student-info-container" key={student.id}>
       <div className="student--img">
         <img src={student.pic} alt={student.firstName}/>
       </div>
@@ -21,7 +29,7 @@ export default function StudentInfo() {
       <p>Email: {student.email}</p>
       <p>Company: {student.company}</p>
       <p>Skill: {student.skill}</p>
-      <p>Average: {student.average}</p>
+      <p>Average: {getAverage(student.grades)}%</p>
 
     </div>
   ))
