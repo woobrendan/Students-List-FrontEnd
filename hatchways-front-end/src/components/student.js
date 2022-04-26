@@ -22,16 +22,21 @@ export default function StudentInfo() {
   }
 
   const mappedStudents = students.map(student => (
+
     <div className="student-info-container" key={student.id}>
       <div className="student--img">
         <img src={student.pic} alt={student.firstName}/>
       </div>
       <div className="student-details">
-        <h2>{student.firstName} {student.lastName}</h2>
-        <p>Email: {student.email}</p>
-        <p>Company: {student.company}</p>
-        <p>Skill: {student.skill}</p>
-        <p>Average: {getAverage(student.grades)}%</p>
+        <div className="student-name">
+          <h1>{(student.firstName.toUpperCase())} {(student.lastName.toUpperCase())}</h1>
+        </div>
+        <div className="details">
+          <p>Email: {student.email}</p>
+          <p>Company: {student.company}</p>
+          <p>Skill: {student.skill}</p>
+          <p>Average: {getAverage(student.grades)}%</p>
+        </div>
       </div>
     </div>
   ))
