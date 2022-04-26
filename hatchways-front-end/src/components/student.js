@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import "./styles/student.css"
 
 export default function StudentInfo() {
   const [students, setStudents] = useState([])
@@ -25,12 +26,13 @@ export default function StudentInfo() {
       <div className="student--img">
         <img src={student.pic} alt={student.firstName}/>
       </div>
-      <h2>{student.firstName} {student.lastName}</h2>
-      <p>Email: {student.email}</p>
-      <p>Company: {student.company}</p>
-      <p>Skill: {student.skill}</p>
-      <p>Average: {getAverage(student.grades)}%</p>
-
+      <div className="student-details">
+        <h2>{student.firstName} {student.lastName}</h2>
+        <p>Email: {student.email}</p>
+        <p>Company: {student.company}</p>
+        <p>Skill: {student.skill}</p>
+        <p>Average: {getAverage(student.grades)}%</p>
+      </div>
     </div>
   ))
 
