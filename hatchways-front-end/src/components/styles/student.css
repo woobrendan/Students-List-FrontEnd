@@ -1,6 +1,6 @@
 .student-info-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   padding-left: 5%;
 }
 
@@ -18,4 +18,12 @@
   margin: 0 auto;
   height: 100%;
   width: auto;
+}
+
+.student-details {
+  padding-left: 10%;
+}
+
+.details {
+  padding-left: 7%;
 }
