@@ -31,12 +31,12 @@ export default function StudentInfo() {
         <div className="student-name">
           <h1>{(student.firstName.toUpperCase())} {(student.lastName.toUpperCase())}</h1>
         </div>
-        <div className="details">
-          <p>Email: {student.email}</p>
-          <p>Company: {student.company}</p>
-          <p>Skill: {student.skill}</p>
-          <p>Average: {getAverage(student.grades)}%</p>
-        </div>
+        <ul className="details">
+          <li>Email: {student.email}</li>
+          <li>Company: {student.company}</li>
+          <li>Skill: {student.skill}</li>
+          <li>Average: {getAverage(student.grades)}%</li>
+        </ul>
       </div>
     </div>
   ))
