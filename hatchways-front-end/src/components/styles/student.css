@@ -2,6 +2,7 @@
   display: flex;
   justify-content: flex-start;
   padding-left: 5%;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .student--img {
@@ -11,6 +12,7 @@
   width: 150px;
   overflow: hidden;
   /* position: relative; */
+  margin-top: 5%;
 }
 
 .student--img img {
