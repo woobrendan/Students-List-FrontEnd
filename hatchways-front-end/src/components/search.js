@@ -1,8 +1,10 @@
+import "./styles/search.css"
+import TextField from '@mui/material/TextField';
 const Search = () => {
   return (
-  <div className="Search_Bar">
-    <h1>Hello World</h1>
-  </div>
+    <>
+    <TextField id="standard-basic" label="Standard" variant="standard"/>
+    </>
   )
 }
 export default Search;
