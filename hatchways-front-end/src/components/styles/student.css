@@ -32,3 +32,12 @@
   text-align: left;
   list-style: none;
 }
+
+@media only screen and (max-width: 688px) {
+}
+
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+}
+
+@media only screen and (min-width: 993px) {
+}
