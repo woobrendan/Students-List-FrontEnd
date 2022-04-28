@@ -21,29 +21,31 @@ export default function StudentInfo() {
     return gradeTotal / grades.length
   }
 
-  const mappedStudents = students.map(student => (
-
-    <div className="student-info-container" key={student.id}>
-      <div className="student--img">
-        <img src={student.pic} alt={student.firstName}/>
-      </div>
-      <div className="student-details">
-        <div className="student-name">
-          <h1>{(student.firstName.toUpperCase())} {(student.lastName.toUpperCase())}</h1>
+  const mapStudents = (students) => {
+    const mappedStudents = students.map(student => (
+      <div className="student-info-container" key={student.id}>
+        <div className="student--img">
+          <img src={student.pic} alt={student.firstName}/>
         </div>
-        <ul className="details">
-          <li>Email: {student.email}</li>
-          <li>Company: {student.company}</li>
-          <li>Skill: {student.skill}</li>
-          <li>Average: {getAverage(student.grades)}%</li>
-        </ul>
+        <div className="student-details">
+          <div className="student-name">
+            <h1>{(student.firstName.toUpperCase())} {(student.lastName.toUpperCase())}</h1>
+          </div>
+          <ul className="details">
+            <li>Email: {student.email}</li>
+            <li>Company: {student.company}</li>
+            <li>Skill: {student.skill}</li>
+            <li>Average: {getAverage(student.grades)}%</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  ))
+    ))
+    return mappedStudents
+  }
 
   return (
     <>
-      {mappedStudents}
+      {mapStudents(students)}
     </>
   )
 }
