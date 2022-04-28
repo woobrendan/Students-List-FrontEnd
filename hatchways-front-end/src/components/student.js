@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import "./styles/student.css"
-import Search from './search';
+// import Search from './search';
+import "./styles/search.css"
+import TextField from '@mui/material/TextField';
 
 export default function StudentInfo() {
   const [students, setStudents] = useState([])
+  const [searchStudent, setSearchStudent] = useState('')
   
   useEffect(() => {
     axios.get(`https://api.hatchways.io/assessment/students`)
@@ -19,6 +22,8 @@ export default function StudentInfo() {
     const gradeTotal = intGrades.reduce((prev, current) => prev + current, 0)
     return gradeTotal / grades.length
   }
+
+  
 
   const mapStudents = (students) => {
     const mappedStudents = students.map(student => (
@@ -44,7 +49,7 @@ export default function StudentInfo() {
 
   return (
     <>
-      <Search />
+       <TextField id="standard-basic" label="Search by name" variant="standard" value={searchStudent}/>
       {mapStudents(students)}
     </>
   )
