@@ -38,7 +38,7 @@
   text-align: left;
 }
 
-@media only screen and (max-width: 497px) {
+@media only screen and (max-width: 550px) {
   .student-name h1 {
     font-size: 20px;
   }
@@ -53,7 +53,7 @@
   }
 }
 
-@media only screen and (min-width: 498px) and (max-width: 992px) {
+@media only screen and (min-width: 551px) and (max-width: 992px) {
   .details {
     font-size: 20px;
   }
