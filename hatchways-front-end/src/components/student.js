@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import "./styles/student.css"
+import Search from './search';
 
 export default function StudentInfo() {
   const [students, setStudents] = useState([])
@@ -14,9 +15,7 @@ export default function StudentInfo() {
   }, []);
 
   const getAverage = (grades) => {
-    const intGrades = grades.map(grade => {
-      return Number(grade)
-    })
+    const intGrades = grades.map(grade => Number(grade))
     const gradeTotal = intGrades.reduce((prev, current) => prev + current, 0)
     return gradeTotal / grades.length
   }
@@ -45,6 +44,7 @@ export default function StudentInfo() {
 
   return (
     <>
+      <Search />
       {mapStudents(students)}
     </>
   )
