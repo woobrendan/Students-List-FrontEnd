@@ -1,9 +1,9 @@
 import "./styles/search.css"
 import TextField from '@mui/material/TextField';
-const Search = () => {
+const Search = (props) => {
   return (
     <>
-    <TextField id="standard-basic" label="Standard" variant="standard"/>
+    <TextField id="standard-basic" label="Search by name" variant="standard" value={props.searchName}/>
     </>
   )
 }
