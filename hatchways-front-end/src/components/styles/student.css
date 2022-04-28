@@ -31,13 +31,39 @@
   padding-left: 7%;
   text-align: left;
   list-style: none;
+  width: 100%;
 }
 
-@media only screen and (max-width: 688px) {
+.student-name h1 {
+  text-align: left;
 }
 
-@media only screen and (min-width: 689px) and (max-width: 992px) {
+@media only screen and (max-width: 497px) {
+  .student-name h1 {
+    font-size: 20px;
+  }
+  .student--img {
+    height: 100px;
+    width: 100px;
+    margin-left: 5%;
+  }
+
+  .details {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 498px) and (max-width: 992px) {
+  .details {
+    font-size: 20px;
+  }
 }
 
 @media only screen and (min-width: 993px) {
+  .details {
+    font-size: 25px;
+  }
+  .student-name h1 {
+    font-size: 40px;
+  }
 }
