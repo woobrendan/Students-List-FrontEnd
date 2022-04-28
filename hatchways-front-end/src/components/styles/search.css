@@ -1,4 +1,8 @@
-input {
-  width: 100%;
+.MuiTextField-root {
+  width: 90%;
   height: 30px;
+  /* padding-bottom: 25px; */
+}
+.MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  padding-bottom: 25px;
 }
