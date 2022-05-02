@@ -53,8 +53,11 @@ export default function StudentInfo() {
             <li>Average: {getAverage(student.grades)}%</li>
           </ul>
           <div className="grades" hidden={displayGrades}>
-
+            <Grades grades={student.grades}/>
           </div>
+        </div>
+        <div className="grades-toggle">
+          <button>Hello</button>
         </div>
       </div>
     ))
