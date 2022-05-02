@@ -3,10 +3,12 @@ import axios from "axios";
 import "./styles/student.css"
 import "./styles/search.css"
 import TextField from '@mui/material/TextField';
+import Grades from './grades';
 
 export default function StudentInfo() {
   const [students, setStudents] = useState([])
-  const [searchStudent, setSearchStudent] = useState('')
+  const [searchStudent, setSearchStudent] = useState('');
+  const [displayGrades, setDisplayGrades] = useState(true);
   
   useEffect(() => {
     axios.get(`https://api.hatchways.io/assessment/students`)
@@ -22,6 +24,9 @@ export default function StudentInfo() {
     return gradeTotal / grades.length
   }
 
+  const handleToggle = () => {
+    displayGrades ? setDisplayGrades(false) : setDisplayGrades(true) 
+  }
   
 
   const mapStudents = (students) => {
@@ -47,6 +52,9 @@ export default function StudentInfo() {
             <li>Skill: {student.skill}</li>
             <li>Average: {getAverage(student.grades)}%</li>
           </ul>
+          <div className="grades" hidden={displayGrades}>
+
+          </div>
         </div>
       </div>
     ))
