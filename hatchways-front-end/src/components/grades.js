@@ -1,14 +1,15 @@
 export default function Grades(props) {
 
   const mappedGrades = props.grades.map((grade, index) =>(
-    <li key={index}>
-      Test {index + 1}:      {Number(grade)} %
-    </li>
+    <div key={index}>
+      <span>Test {index + 1}: </span>     
+      <span>{Number(grade)} %</span>
+    </div>
   ))
   
   return (
-    <ul>
+    <>
       {mappedGrades}
-    </ul>
+    </>
   )
 }
