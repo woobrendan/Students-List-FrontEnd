@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import "./styles/student.css"
+import "./styles/student.scss"
 import "./styles/search.css"
 import TextField from '@mui/material/TextField';
 import Grades from './grades';
+import add from './styles/add.png'
 
 export default function StudentInfo() {
   const [students, setStudents] = useState([])
@@ -57,7 +58,9 @@ export default function StudentInfo() {
           </div>
         </div>
         <div className="grades-toggle">
-          <button>Hello</button>
+          <button onClick={() => handleToggle()}>
+            <img src={add} alt="add" id="add-button"/>
+          </button>
         </div>
       </div>
     ))
