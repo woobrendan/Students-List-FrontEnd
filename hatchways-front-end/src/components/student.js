@@ -26,7 +26,14 @@ export default function StudentInfo() {
   
 
   const mapStudents = (students) => {
-    const mappedStudents = students.map(student => (
+    const mappedStudents = students.filter(val => {
+      if(searchStudent === "") {
+        return val;
+      } else if (val.firstName.toLowerCase().includes(searchStudent.toLowerCase()) || val.lastName.toLowerCase().includes(searchStudent.toLowerCase())) {
+        return val;
+      }
+    })
+    .map(student => (
       <div className="student-info-container" key={student.id}>
         <div className="student--img">
           <img src={student.pic} alt={student.firstName}/>
@@ -44,12 +51,18 @@ export default function StudentInfo() {
         </div>
       </div>
     ))
-    return mappedStudents
+    return mappedStudents;
   }
 
   return (
     <>
-       <TextField id="standard-basic" label="Search by name" variant="standard" value={searchStudent}/>
+      <TextField 
+        id="standard-basic" 
+        label="Search by name" 
+        variant="standard" 
+        value={searchStudent}
+        onChange={e => {setSearchStudent(e.target.value)}}
+      />
       {mapStudents(students)}
     </>
   )
