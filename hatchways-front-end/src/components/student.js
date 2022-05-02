@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import "./styles/student.css"
-// import Search from './search';
 import "./styles/search.css"
 import TextField from '@mui/material/TextField';
 
