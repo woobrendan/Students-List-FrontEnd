@@ -5,6 +5,7 @@ import "./styles/search.css"
 import TextField from '@mui/material/TextField';
 import Grades from './grades';
 import add from './styles/add.png'
+import minus from './styles/minimize-sign.png'
 
 export default function StudentInfo() {
   const [students, setStudents] = useState([])
@@ -27,6 +28,11 @@ export default function StudentInfo() {
 
   const handleToggle = () => {
     displayGrades ? setDisplayGrades(false) : setDisplayGrades(true) 
+  }
+
+  const showButton = () => {
+    if (displayGrades) return add;
+    else return minus;
   }
   
 
@@ -59,7 +65,7 @@ export default function StudentInfo() {
         </div>
         <div className="grades-toggle">
           <button onClick={() => handleToggle()}>
-            <img src={add} alt="add" id="add-button"/>
+            <img src={showButton()} alt="add" id="add-button"/>
           </button>
         </div>
       </div>
