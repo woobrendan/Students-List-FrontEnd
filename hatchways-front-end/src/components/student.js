@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import Grades from './grades';
 import add from './styles/add.png'
 import minus from './styles/minimize-sign.png'
+import Tag from './Tag';
 import $ from "jquery";
 
 export default function StudentInfo() {
@@ -60,6 +61,7 @@ export default function StudentInfo() {
             <li>Skill: {student.skill}</li>
             <li>Average: {getAverage(student.grades)}%</li>
           </ul>
+          <Tag />
           <div className="grades" id={`grade-student-${index + 1}`} hidden>
             <Grades grades={student.grades}/>
           </div>
