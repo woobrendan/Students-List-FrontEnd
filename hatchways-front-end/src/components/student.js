@@ -11,7 +11,6 @@ import $ from "jquery";
 export default function StudentInfo() {
   const [students, setStudents] = useState([])
   const [searchStudent, setSearchStudent] = useState('');
-  const [displayGrades, setDisplayGrades] = useState(true);
   
   useEffect(() => {
     axios.get(`https://api.hatchways.io/assessment/students`)
