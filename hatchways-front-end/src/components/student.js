@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import Grades from './grades';
 import add from './styles/add.png'
 import minus from './styles/minimize-sign.png'
+import $ from "jquery";
 
 export default function StudentInfo() {
   const [students, setStudents] = useState([])
@@ -26,15 +27,16 @@ export default function StudentInfo() {
     return gradeTotal / grades.length
   }
 
-  const handleToggle = () => {
-    displayGrades ? setDisplayGrades(false) : setDisplayGrades(true) 
+  const handleToggle = (id) => {
+    //check if grades are showing, toggle hidden attribute and change add/minus icon accordingly
+    if ($(`#grade-student-${id}`).is('[hidden]')) {
+      $(`#grade-student-${id}`).removeAttr('hidden');
+      $(`#add-button-${id}`).attr("src", minus)
+    } else {
+      $(`#grade-student-${id}`).attr('hidden', '');
+      $(`#add-button-${id}`).attr("src", add)
+    }
   }
-
-  const showButton = () => {
-    if (displayGrades) return add;
-    else return minus;
-  }
-  
 
   const mapStudents = (students) => {
     const mappedStudents = students.filter(val => {
@@ -44,7 +46,7 @@ export default function StudentInfo() {
         return val;
       }
     })
-    .map(student => (
+    .map((student, index)=> (
       <div className="student-info-container" key={student.id}>
         <div className="student--img">
           <img src={student.pic} alt={student.firstName}/>
@@ -59,13 +61,13 @@ export default function StudentInfo() {
             <li>Skill: {student.skill}</li>
             <li>Average: {getAverage(student.grades)}%</li>
           </ul>
-          <div className="grades" hidden={displayGrades}>
+          <div className="grades" id={`grade-student-${index + 1}`} hidden>
             <Grades grades={student.grades}/>
           </div>
         </div>
         <div className="grades-toggle">
-          <button onClick={() => handleToggle()}>
-            <img src={showButton()} alt="add" id="add-button"/>
+          <button onClick={() => handleToggle(index + 1)}>
+            <img src={add} alt="add" id={`add-button-${index + 1}`}/>
           </button>
         </div>
       </div>
