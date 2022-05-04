@@ -61,10 +61,10 @@ export default function StudentInfo() {
             <li>Skill: {student.skill}</li>
             <li>Average: {getAverage(student.grades)}%</li>
           </ul>
-          <Tag />
           <div className="grades" id={`grade-student-${index + 1}`} hidden>
             <Grades grades={student.grades}/>
           </div>
+          <Tag />
         </div>
         <div className="grades-toggle">
           <button onClick={() => handleToggle(index + 1)}>
