@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import TagList from './TagList';
-import { Chip } from '@mui/material';
+
 
 export default function Tag() {
   const [tag, setTag] = useState("");
@@ -19,7 +19,7 @@ export default function Tag() {
   }
 
   return (
-    <>
+    <div className="taglist">
       <TagList tagList={tagList} />
       <form onSubmit={handleSubmit}>
         <TextField 
@@ -31,6 +31,6 @@ export default function Tag() {
           onChange={handleChange}
         />
       </form>
-    </>
+    </div>
   )
 }
