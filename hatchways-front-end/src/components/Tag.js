@@ -19,8 +19,10 @@ export default function Tag() {
   }
 
   return (
-    <div className="taglist">
-      <TagList tagList={tagList} />
+    <>
+      <div className="taglist">
+        <TagList tagList={tagList} />
+      </div>
       <form onSubmit={handleSubmit}>
         <TextField 
           id="standard-basic" 
@@ -31,6 +33,6 @@ export default function Tag() {
           onChange={handleChange}
         />
       </form>
-    </div>
+    </>
   )
 }
