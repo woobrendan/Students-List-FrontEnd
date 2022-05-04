@@ -14,7 +14,7 @@ export default function StudentInfo(props) {
   return (
     <div className="student-details">
       <div className="student-name">
-        <h1>{(props.student.firstName.toUpperCase())} {(student.lastName.toUpperCase())}</h1>
+        <h1>{(student.firstName.toUpperCase())} {(student.lastName.toUpperCase())}</h1>
       </div>
       <ul className="details">
         <li>Email: {student.email}</li>
