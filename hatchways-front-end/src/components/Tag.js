@@ -6,6 +6,8 @@ import TagList from './TagList';
 export default function Tag() {
   const [tag, setTag] = useState("");
   const [tagList, setTagList] = useState([])
+
+  //tag text  field value as  user inputs
   const handleChange = (event) => {
     setTag(event.target.value)
   }
