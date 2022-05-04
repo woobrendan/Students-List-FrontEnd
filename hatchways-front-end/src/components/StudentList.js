@@ -3,11 +3,10 @@ import axios from "axios";
 import "./styles/student.scss"
 import "./styles/search.css"
 import TextField from '@mui/material/TextField';
-import Grades from './grades';
 import add from './styles/add.png'
 import minus from './styles/minimize-sign.png'
-import Tag from './Tag';
 import $ from "jquery";
+import StudentInfo from './StudentInfo';
 
 export default function StudentList() {
   const [students, setStudents] = useState([])
@@ -20,12 +19,6 @@ export default function StudentList() {
       })
       .catch((err) => console.log("Error: ", err))
   }, []);
-
-  const getAverage = (grades) => {
-    const intGrades = grades.map(grade => Number(grade))
-    const gradeTotal = intGrades.reduce((prev, current) => prev + current, 0)
-    return gradeTotal / grades.length
-  }
 
   const handleToggle = (id) => {
     //check if grades are showing, toggle hidden attribute and change add/minus icon accordingly
@@ -51,21 +44,7 @@ export default function StudentList() {
         <div className="student--img">
           <img src={student.pic} alt={student.firstName}/>
         </div>
-        <div className="student-details">
-          <div className="student-name">
-            <h1>{(student.firstName.toUpperCase())} {(student.lastName.toUpperCase())}</h1>
-          </div>
-          <ul className="details">
-            <li>Email: {student.email}</li>
-            <li>Company: {student.company}</li>
-            <li>Skill: {student.skill}</li>
-            <li>Average: {getAverage(student.grades)}%</li>
-          </ul>
-          <div className="grades" id={`grade-student-${index + 1}`} hidden>
-            <Grades grades={student.grades}/>
-          </div>
-          <Tag />
-        </div>
+        <StudentInfo student={student} index={index}/>
         <div className="grades-toggle">
           <button onClick={() => handleToggle(index + 1)}>
             <img src={add} alt="add" id={`add-button-${index + 1}`}/>
