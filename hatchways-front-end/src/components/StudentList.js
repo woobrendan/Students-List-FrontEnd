@@ -11,6 +11,7 @@ import StudentInfo from './StudentInfo';
 export default function StudentList() {
   const [students, setStudents] = useState([])
   const [searchStudent, setSearchStudent] = useState('');
+  const [searchTag, setSearchTag] = useState('');
   
   useEffect(() => {
     axios.get(`https://api.hatchways.io/assessment/students`)
@@ -63,6 +64,13 @@ export default function StudentList() {
         variant="standard" 
         value={searchStudent}
         onChange={e => {setSearchStudent(e.target.value)}}
+      />
+      <TextField 
+        id="standard-basic" 
+        label="Search by tag" 
+        variant="standard" 
+        value={searchTag}
+        onChange={e => {setSearchTag(e.target.value)}}
       />
       {mapStudents(students)}
     </>
