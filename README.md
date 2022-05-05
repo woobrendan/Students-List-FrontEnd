@@ -24,4 +24,4 @@ Given an API route that consists of an array of student objects, render the info
 
 ## Expand to Show Test Scores
 
-![Toggle Grades](https://github.com/woobrendan/Students-List-FrontEnd/blob/main/Students_List_FrontEnd/public/docs/Toggle_Grades.png?raw=true)]
+![Toggle Grades](https://github.com/woobrendan/Students-List-FrontEnd/blob/main/Students_List_FrontEnd/public/docs/Toggle_Grades.png?raw=true)
