@@ -6,10 +6,22 @@ Given an API route that consists of an array of student objects, render the info
 
 ## Tech Stack
 
-```
+```sh
 - React
 - Material UI
 - Axios
 - jQuery
 - Sass
 ```
+
+## Add Tags
+
+![Add Tags to Students]()
+
+## Search For Students by Name
+
+![Search by name]()
+
+## Expand to Show Test Scores
+
+![Toggle Grades]()]
