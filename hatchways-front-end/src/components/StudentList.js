@@ -13,6 +13,7 @@ export default function StudentList() {
   const [students, setStudents] = useState([])
   const [searchStudent, setSearchStudent] = useState('');
   const [searchTag, setSearchTag] = useState('');
+  const [fullTagList, setFullTagList] = useState([]);
   
   useEffect(() => {
     axios.get(`https://api.hatchways.io/assessment/students`)
@@ -33,6 +34,30 @@ export default function StudentList() {
     }
   }
 
+  const getTagList = (tagArray) => {
+    setFullTagList((prev) => [
+      ...prev, ...tagArray
+    ])
+  }
+
+  // const searchTags = () => {
+  //   fullTagList.filter(indivTag => {
+  //     if (fullTagList.length === 0) {
+  //       return indivTag
+  //     } else if (indivTag.toLowerCase().includes(searchTag.toLowerCase())) {
+  //       return indivTag
+  //     }
+  //   })
+  // }
+
+  // const addTagToStudent = (student, tag) => {
+  //   if (student.tags) {
+  //     student.tags.push(tag)
+  //   } else {
+  //     student.tags = [tag]
+  //   }
+  // }
+
   const mapStudents = (students) => {
     const mappedStudents = students.filter(val => {
       if(searchStudent === "") {
@@ -50,7 +75,7 @@ export default function StudentList() {
         </div>
         <div className="student-details">
           <StudentInfo student={student} index={index}/>
-          <Tag />
+          <Tag getTagList={getTagList} />
         </div>
         <div className="grades-toggle">
           <button onClick={() => handleToggle(index + 1)}>
