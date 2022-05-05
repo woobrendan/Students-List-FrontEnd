@@ -13,6 +13,7 @@ export default function StudentList() {
   const [students, setStudents] = useState([])
   const [searchStudent, setSearchStudent] = useState('');
   const [searchTag, setSearchTag] = useState('');
+  const [tag, setTag] = useState("");
   
   useEffect(() => {
     axios.get(`https://api.hatchways.io/assessment/students`)
@@ -33,6 +34,10 @@ export default function StudentList() {
     }
   }
 
+  const getTag = (val) => {
+    setTag(val)
+  }
+
   const mapStudents = (students) => {
     const mappedStudents = students.filter(val => {
       if(searchStudent === "") {
@@ -50,7 +55,7 @@ export default function StudentList() {
         </div>
         <div className="student-details">
           <StudentInfo student={student} index={index}/>
-          <Tag />
+          <Tag tag={tag} getTag={getTag}/>
         </div>
         <div className="grades-toggle">
           <button onClick={() => handleToggle(index + 1)}>
