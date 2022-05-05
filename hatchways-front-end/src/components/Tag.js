@@ -4,20 +4,20 @@ import TagList from './TagList';
 
 
 export default function Tag(props) {
-  // const [tag, setTag] = useState("");
+  const [tag, setTag] = useState("");
   const [tagList, setTagList] = useState([])
 
   //tag text  field value as  user inputs
   const handleChange = (event) => {
-    props.getTag(event.target.value)
+    setTag(event.target.value)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setTagList((prev) => ([
-      ...prev, props.tag
+      ...prev, tag
     ]))
-    props.getTag("")
+    setTag("")
   }
 
   return (
@@ -31,7 +31,7 @@ export default function Tag(props) {
           variant="standard"
           label="Add a tag"
           size="small"
-          value={props.tag}
+          value={tag}
           onChange={handleChange}
         />
       </form>
