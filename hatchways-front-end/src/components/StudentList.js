@@ -7,6 +7,7 @@ import add from './styles/add.png'
 import minus from './styles/minimize-sign.png'
 import $ from "jquery";
 import StudentInfo from './StudentInfo';
+import Tag from './Tag'
 
 export default function StudentList() {
   const [students, setStudents] = useState([])
@@ -36,7 +37,9 @@ export default function StudentList() {
     const mappedStudents = students.filter(val => {
       if(searchStudent === "") {
         return val;
-      } else if (val.firstName.toLowerCase().includes(searchStudent.toLowerCase()) || val.lastName.toLowerCase().includes(searchStudent.toLowerCase())) {
+      } else if (
+        val.firstName.toLowerCase().includes(searchStudent.toLowerCase()) 
+        || val.lastName.toLowerCase().includes(searchStudent.toLowerCase())) {
         return val;
       }
     })
@@ -45,7 +48,10 @@ export default function StudentList() {
         <div className="student--img">
           <img src={student.pic} alt={student.firstName}/>
         </div>
-        <StudentInfo student={student} index={index}/>
+        <div className="student-details">
+          <StudentInfo student={student} index={index}/>
+          <Tag />
+        </div>
         <div className="grades-toggle">
           <button onClick={() => handleToggle(index + 1)}>
             <img src={add} alt="add" id={`add-button-${index + 1}`}/>
