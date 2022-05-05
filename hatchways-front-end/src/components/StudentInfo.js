@@ -1,6 +1,4 @@
 import Grades from "./grades"
-import Tag from "./Tag"
-
 
 export default function StudentInfo(props) {
   const {student} = props
@@ -12,7 +10,7 @@ export default function StudentInfo(props) {
   }
 
   return (
-    <div className="student-details">
+    <>
       <div className="student-name">
         <h1>{(student.firstName.toUpperCase())} {(student.lastName.toUpperCase())}</h1>
       </div>
@@ -25,7 +23,6 @@ export default function StudentInfo(props) {
       <div className="grades" id={`grade-student-${props.index + 1}`} hidden>
         <Grades grades={student.grades}/>
       </div>
-      <Tag />
-    </div>
+    </>
   )
 }
