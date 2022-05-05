@@ -17,7 +17,8 @@ export default function Tag(props) {
     setTagList((prev) => ([
       ...prev, tag
     ]))
-    setTag("")
+    setTag("");
+    props.getTagList(tagList);
   }
 
   return (
