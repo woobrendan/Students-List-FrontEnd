@@ -96,13 +96,13 @@ export default function StudentList() {
         value={searchStudent}
         onChange={e => {setSearchStudent(e.target.value)}}
       />
-      <TextField 
+      {/* <TextField 
         id="standard-basic" 
         label="Search by tag" 
         variant="standard" 
         value={searchTag}
         onChange={e => {setSearchTag(e.target.value)}}
-      />
+      /> */}
       {mapStudents(students)}
     </>
   )
